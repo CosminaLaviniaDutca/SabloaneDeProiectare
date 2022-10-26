@@ -1,3 +1,5 @@
+package Lab4;
+
 public class TableOfContents implements Element {
         private String name;
         public TableOfContents(String name) {
