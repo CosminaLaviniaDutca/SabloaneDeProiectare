@@ -1,3 +1,7 @@
+package models;
+
+import services.Visitor;
+
 public class ImageProxy implements Element, Picture {
     private String url;
     private Dimension dim;
@@ -28,6 +32,8 @@ public class ImageProxy implements Element, Picture {
     public boolean find(Element e) {
         return false;
     }
+
+
     @Override
     public String url() {
         return url;
@@ -41,5 +47,10 @@ public class ImageProxy implements Element, Picture {
             realImage = new Image(url);
         }
         return realImage;
+    }
+
+    @Override
+    public void accept(Visitor v) {
+        v.visitImageProxy(this);
     }
 }

@@ -1,3 +1,7 @@
+package models;
+
+import services.Visitor;
+
 public class Table implements Element {
     private String title;
 
@@ -5,7 +9,7 @@ public class Table implements Element {
         this.title = title;
     }
     public void print() {
-        System.out.println("Table with title: " + title);
+        System.out.println("models.Table with title: " + title);
     }
     @Override
     public void add(Element e) {
@@ -25,5 +29,10 @@ public class Table implements Element {
         else {
             return ((Table) e).title.equals(this.title);
         }
+    }
+
+    @Override
+    public void accept(Visitor v) {
+        v.visitTable(this);
     }
 }

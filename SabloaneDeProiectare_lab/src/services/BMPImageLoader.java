@@ -1,3 +1,8 @@
+package services;
+
+import models.ImageContent;
+import services.ImageLoader;
+
 public class BMPImageLoader implements ImageLoader {
 
         @Override

@@ -1,3 +1,9 @@
+package models;
+
+import services.ImageLoader;
+import services.ImageLoaderFactory;
+import services.Visitor;
+
 import java.util.concurrent.TimeUnit;
 
 public class Image implements Element, Picture {
@@ -17,10 +23,10 @@ public class Image implements Element, Picture {
     }
     public void print(){
         if (content != null) {
-            System.out.println("Image with name: " + imageName + "content: " + content);
+            System.out.println("models.Image with name: " + imageName + "content: " + content);
         }
         else {
-            System.out.println("Image with name: " + imageName);
+            System.out.println("models.Image with name: " + imageName);
         }
     }
     @Override
@@ -57,5 +63,10 @@ public class Image implements Element, Picture {
     public void setContent(String type) {
         ImageLoader loader = factory.create(type);
         content = loader.load("dummy content");
+    }
+
+    @Override
+    public void accept(Visitor v) {
+        v.visitImage(this);
     }
 }

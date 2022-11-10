@@ -1,3 +1,7 @@
+package models;
+
+import services.Visitor;
+
 import java.util.ArrayList;
 
 public class Section implements Element {
@@ -47,5 +51,13 @@ public class Section implements Element {
             }
         }
         return false;
+    }
+
+    @Override
+    public void accept(Visitor v) {
+        v.visitSection(this);
+        for (Element el : subElements) {
+            el.accept(v);
+        }
     }
 }

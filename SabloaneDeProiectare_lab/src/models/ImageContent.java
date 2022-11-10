@@ -1,3 +1,5 @@
+package models;
+
 public class ImageContent {
     private String type;
 

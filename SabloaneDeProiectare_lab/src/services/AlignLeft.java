@@ -1,3 +1,8 @@
+package services;
+
+import models.Context;
+import models.Paragraph;
+
 public class AlignLeft implements AlignStrategy {
 
     @Override

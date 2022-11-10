@@ -1,3 +1,5 @@
+package models;
+
 public class Dimension {
     private int lungime;
     private int latime;

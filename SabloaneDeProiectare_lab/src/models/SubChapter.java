@@ -1,3 +1,7 @@
+package models;
+
+import models.Element;
+
 import java.util.ArrayList;
 
 public class SubChapter{

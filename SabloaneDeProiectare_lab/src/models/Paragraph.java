@@ -1,3 +1,8 @@
+package models;
+
+import services.AlignStrategy;
+import services.Visitor;
+
 public class Paragraph implements Element {
     private String text;
     private AlignStrategy alignStrategy;
@@ -38,5 +43,10 @@ public class Paragraph implements Element {
     }
     public void setAlignStrategy(AlignStrategy align) {
         this.alignStrategy = align;
+    }
+
+    @Override
+    public void accept(Visitor v) {
+        v.visitParagraph(this);
     }
 }
