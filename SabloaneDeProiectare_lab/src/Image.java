@@ -1,10 +1,10 @@
-package Lab4;
-
 import java.util.concurrent.TimeUnit;
 
 public class Image implements Element, Picture {
     private String imageName;
     private Dimension dim;
+    private ImageLoaderFactory factory = new ImageLoaderFactory();
+    private ImageContent content;
 
     public Image(String imageName) {
         this.imageName = imageName;
@@ -16,7 +16,12 @@ public class Image implements Element, Picture {
         this.dim = new Dimension(1, 2);
     }
     public void print(){
-        System.out.println("Image with name: " + imageName);
+        if (content != null) {
+            System.out.println("Image with name: " + imageName + "content: " + content);
+        }
+        else {
+            System.out.println("Image with name: " + imageName);
+        }
     }
     @Override
     public void add(Element e) {
@@ -44,5 +49,13 @@ public class Image implements Element, Picture {
     @Override
     public Dimension dim() {
         return this.dim;
+    }
+
+    public ImageContent getContent() {
+        return content;
+    }
+    public void setContent(String type) {
+        ImageLoader loader = factory.create(type);
+        content = loader.load("dummy content");
     }
 }

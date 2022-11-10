@@ -1,5 +1,3 @@
-package Lab4;
-
 public interface Element {
     public void print();
     public void add(Element e) throws Exception;

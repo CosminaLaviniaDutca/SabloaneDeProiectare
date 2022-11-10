@@ -1,13 +1,17 @@
-package Lab4;
-
 public class Paragraph implements Element {
     private String text;
+    private AlignStrategy alignStrategy;
 
     public Paragraph(String text) {
         this.text = text;
     }
     public void print(){
-        System.out.println("Paragraph: " + text);
+        if (alignStrategy != null) {
+            alignStrategy.render(this, new Context());
+        }
+        else {
+            System.out.println("Paragraph: " + text);
+        }
     }
     @Override
     public void add(Element e) {
@@ -27,5 +31,12 @@ public class Paragraph implements Element {
         else {
             return ((Paragraph) e).text.equals(this.text);
         }
+    }
+
+    public String getName() {
+        return this.text;
+    }
+    public void setAlignStrategy(AlignStrategy align) {
+        this.alignStrategy = align;
     }
 }

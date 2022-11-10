@@ -1,5 +1,3 @@
-package Lab4;
-
 public class Dimension {
     private int lungime;
     private int latime;

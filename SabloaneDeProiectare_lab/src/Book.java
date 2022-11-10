@@ -1,5 +1,3 @@
-package Lab4;
-
 import java.util.ArrayList;
 
 public class Book extends Section{

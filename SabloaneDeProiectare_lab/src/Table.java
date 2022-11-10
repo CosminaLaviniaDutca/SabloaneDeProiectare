@@ -1,5 +1,3 @@
-package Lab4;
-
 public class Table implements Element {
     private String title;
 
