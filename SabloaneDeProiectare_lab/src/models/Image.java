@@ -23,10 +23,10 @@ public class Image implements Element, Picture {
     }
     public void print(){
         if (content != null) {
-            System.out.println("models.Image with name: " + imageName + "content: " + content);
+            System.out.println("Image with name: " + imageName + "content: " + content);
         }
         else {
-            System.out.println("models.Image with name: " + imageName);
+            System.out.println("Image with name: " + imageName);
         }
     }
     @Override

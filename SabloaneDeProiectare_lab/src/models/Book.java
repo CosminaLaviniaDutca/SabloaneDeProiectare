@@ -13,13 +13,11 @@ public class Book extends Section implements Element{
         this.title = name;
     }
     public void print() {
-        System.out.println("models.Book: " + this.title + "\n");
+        System.out.println("Book: " + this.title);
         System.out.println("Authors:");
         for(Author a : authors) {
-            System.out.print("models.Author: ");
             a.print();
         }
-        System.out.println();
         super.print();
     }
     public void addAuthor(Author a) {

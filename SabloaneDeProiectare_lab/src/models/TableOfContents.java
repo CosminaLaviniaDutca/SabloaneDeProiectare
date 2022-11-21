@@ -2,14 +2,23 @@ package models;
 
 import services.Visitor;
 
+import java.util.ArrayList;
+
 public class TableOfContents implements Element {
         private String name;
+        private ArrayList<String> elements = new ArrayList<String>();
+
         public TableOfContents(String name) {
             super();
             this.name = name;
         }
         public void print() {
-            System.out.println("models.TableOfContents with name: " + name);
+            System.out.println("TableOfContents with name: " + name);
+            for(String s: elements){
+                if(s!=null){
+                    System.out.println(s);
+                }
+            }
         }
 
         @Override
@@ -29,9 +38,13 @@ public class TableOfContents implements Element {
             return false;
         }
 
-    @Override
-    public void accept(Visitor v) {
-        v.visitTableOfContents(this);
-    }
+        @Override
+        public void accept(Visitor v) {
+            v.visitTableOfContents(this);
+        }
+
+        public void addEntry(String el){
+            elements.add(el);
+        }
 }
 
